@@ -43,6 +43,12 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "bootstrap", "~> 5.2"
+  gem "autoprefixer-rails"
+  gem "font-awesome-sass", "~> 6.1"
+  gem "simple_form"
+  gem "sassc-rails"
 end
 
 group :development do
