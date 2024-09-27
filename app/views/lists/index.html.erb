@@ -3,7 +3,7 @@
 	<%= "🎥" %>
 	</div>
 	<div>
-		<%= link_to "My lists", lists_path %>
+		<%= link_to "My lists", root_path %>
 		<%= link_to "New list", new_list_path %>
 	</div>
 </div>
@@ -19,8 +19,8 @@
 		<div class='col-9'>
 			<div class="cards">
 				<% @lists.each do |list| %>
-						<div class="card-category">
-							<%= link_to list.name, list_path(list) %>
+					<div class="card-category">
+						<%= link_to list.name, list_path(list) %>
 					</div>
 				<% end %>
 			</div>

@@ -3,7 +3,7 @@
 	<%= "🎥" %>
 	</div>
 	<div>
-		<%= link_to "My lists", lists_path %>
+		<%= link_to "My lists", root_path %>
 		<%= link_to "New list", new_list_path %>
 	</div>
 </div>
@@ -12,28 +12,42 @@
 	<%= @list.name %>
 </div>
 
-<div class='container'>
+<div class='movie-container'>
 	<div class='movie-links'>
-		<%= link_to "Back to lists", lists_path %>
-		<%= link_to "Add a movie", new_list_bookmark_path(@list), class:'btn btn-success' %>
+		<%= link_to "Back to lists", root_path %>
 	</div>
 
-	<div class='col-12'>
-		<div class='movie-cards'>	
-			<div class='card-movie'>
+	<div class='row movie-content'>
+		<div class='col-12'>
+			<div class='movie-cards'>	
 				<% @list.bookmarks.each do |bookmark| %>
-					<%= image_tag "cinema-seats.jpg" %>
-					<div class='movie-info'>
-						<p><%= bookmark.movie.title %></p>
-						<p><%= bookmark.movie.overview %></p>
-					</div>
-					<div class='movie-extras'>
-						<p> "<%= bookmark.comment %>"</p>
-						<p><%= link_to "Delete", bookmark_path(@list), class: 'btn btn-danger',
-								data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+					<div class='card-movie'>
+						<%= image_tag bookmark.movie.poster_url %>
+						<div class='movie-info'>
+							<p><%= bookmark.movie.title %></p>
+							<p><%= bookmark.movie.overview %></p>
+						</div>
+						<div class='movie-extras'>
+							<p> "<%= bookmark.comment %>"</p>
+							<p><%= link_to "Delete", bookmark_path(bookmark), class: 'btn btn-danger',
+									data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+						</div>
 					</div>
 				<% end %>
 			</div>
 		</div>
 	</div>
+
+  <h4 class="text-center">Add a movie</h4>
+
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.button :submit, class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
 </div>
+

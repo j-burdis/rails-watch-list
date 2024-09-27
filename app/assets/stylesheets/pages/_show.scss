@@ -2,7 +2,6 @@
 .movie-links {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 16px;
 
   a {
     color: rgb(25, 25, 25);
@@ -14,11 +13,46 @@
   }
 }
 
+.movie-container {
+  padding-top: 16px;
+
+  .movie-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h4 {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .row {
+    margin-top: 20px;
+  }
+
+  .btn-success {
+    padding: 10px 20px;
+    background-color: #28a745;;
+    color: white;
+    border-radius: #ccc;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+}
+
 .movie-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  justify-content: center;
 }
+
 
 .card-movie {
   display: flex;
@@ -26,12 +60,13 @@
   justify-content: space-between;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
   
   img {
     height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
   }
 }
 
@@ -57,36 +92,26 @@
   }
 }
 
-@media (min-width: 100px) and (max-width: 575px) {
+@media (max-width: 575px) {
   .movie-cards {
     grid-template-columns: 1fr;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .movie-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .movie-cards {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .movie-cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .movie-cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
