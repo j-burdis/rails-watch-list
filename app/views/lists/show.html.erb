@@ -8,13 +8,15 @@
 	</div>
 </div>
 
-<div class="card-category">
+<div class="card-category" style="background-image: url(<%= cl_image_path(@list.photo.key) if @list.photo&.key.present? %>)">
 	<%= @list.name %>
 </div>
 
-<div class='movie-container'>
+<div class='container'>
 	<div class='movie-links'>
 		<%= link_to "Back to lists", root_path %>
+		<%= link_to "Delete list", list_path(@list), class: 'btn btn-danger',
+      	data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 	</div>
 
 	<div class='row movie-content'>
@@ -38,10 +40,10 @@
 		</div>
 	</div>
 
-  <h4 class="text-center">Add a movie</h4>
 
   <div class="row">
-    <div class="col-6 mx-auto">
+  <h4 class="text-center">Add a movie</h4>
+    <div class="col-6 mx-auto" style="padding: 24px;">
       <%= simple_form_for [@list, @bookmark] do |f| %>
         <%= f.association :movie %>
         <%= f.input :comment %>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "lists#index"
-  resources :lists, only: [ :show, :new, :create ] do
+  resources :lists, only: [ :show, :new, :create, :destroy ] do
     resources :bookmarks, only: [ :create ]
   end
   resources :bookmarks, only: [ :destroy ]

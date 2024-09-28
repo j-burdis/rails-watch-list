@@ -11,10 +11,25 @@
   a:hover {
     color: rgb(125, 125, 125);
   }
+
+  .btn-danger {
+    border-radius: 5px;
+    padding: 4px 8px;
+    color: white;
+  
+    &:hover {
+      color: white;
+      background-color: rgb(160, 47, 47);
+    }
+  }
 }
 
-.movie-container {
+.container {
   padding-top: 16px;
+  // margin-right: auto;
+  // margin-left: auto;
+  // padding-right: calc(var(--bs-gutter-x)* .5);
+  // padding-left: calc(var(--bs-gutter-x)* .5);
 
   .movie-content {
     display: flex;
@@ -22,7 +37,6 @@
   }
 
   h4 {
-    margin: 20px 0;
     text-align: center;
   }
 
