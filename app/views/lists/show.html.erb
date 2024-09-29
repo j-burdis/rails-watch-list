@@ -7,8 +7,8 @@
 		<%= link_to "New list", new_list_path %>
 	</div>
 </div>
-<%# @list.photo.attached? && @list.photo.key.present? ? cl_image_path(@list.photo.key) : asset_path('default.jpg') %>
-<div class="card-category" style="background-image: url(<%= cl_image_path(@list.photo.key) if @list.photo&.key.present? %>)">
+
+<div class="card-category" style="background-image: url(<%= @list.photo.attached? && @list.photo.key.present? ? cl_image_path(@list.photo.key) : asset_path('default.jpg') %>)">
 	<%= @list.name %>
 </div>
 
